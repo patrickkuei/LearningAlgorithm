@@ -1,5 +1,10 @@
 /**
- * @param  {array} arr
+ * 從左邊開始找，找到比較小的值，先存起來
+ * 將其左邊的值都往右移動，再將其插入比他小的後面
+ * 
+ * 
+ * @param  {number[]} arr
+ * @returns {number[]}
  */
 var insertionSort = (arr) => {
 

@@ -1,5 +1,6 @@
 /**
- * @param  {array} arr
+ * @param  {number[]} arr
+ * @returns {number[]}
  */
 var bubbleSort = (arr) => {
 

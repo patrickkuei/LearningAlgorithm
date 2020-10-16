@@ -1,5 +1,6 @@
 /**
- * @param  {array} arr
+ * @param  {number[]} arr
+ * @returns {number[]}
  */
 var selectionSort = (arr) => {
     for (let i = 0; i < arr.length - 1; i++) {
@@ -21,6 +22,7 @@ var selectionSort = (arr) => {
 
 /**
  * @param  {array} arr
+ * @returns {number[]}
  */
 var selectionSort2 = (arr) => {
     for (let i = 0; i < arr.length - 1; i++) {

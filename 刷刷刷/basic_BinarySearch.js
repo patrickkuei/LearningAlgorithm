@@ -1,6 +1,7 @@
 /**
- * @param  {array} arr
+ * @param  {number[]} arr
  * @param  {number} target
+ * @returns {number}
  */
 var binarySearch = (arr, target) => {
     var left = 0;
