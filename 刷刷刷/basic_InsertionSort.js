@@ -23,7 +23,6 @@ var insertionSort = (arr) => {
     }
     return arr;
 }
-
 // [3,2,5,1] i=1 j=0 c=2
 // [3,3,5,1]
 // [2,3,5,1]

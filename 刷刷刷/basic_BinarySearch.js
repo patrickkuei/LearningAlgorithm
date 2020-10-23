@@ -1,5 +1,5 @@
 /**
- * @param  {number[]} arr
+ * @param  {number[]} arr sorted array
  * @param  {number} target
  * @returns {number}
  */
@@ -22,4 +22,3 @@ var binarySearch = (arr, target) => {
         }
     }
 }
-
