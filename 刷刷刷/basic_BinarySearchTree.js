@@ -66,17 +66,18 @@ class BinarySearchTree {
     BFSS() {
         let data = []
         let queue = []
+        let currentNode = new Node();
         queue.push(this.root)
         function recursion() {
-            if (queue.length < 0) return data
-            let currentNode = queue.shift()
+            if (queue.length === 0) return
+            currentNode = queue.shift()
             data.push(currentNode)
             if (currentNode.left) queue.push(currentNode.left)
             if (currentNode.right) queue.push(currentNode.right)
             recursion()
-
         }
         recursion()
+        return data
     }
 
     BFS() {
@@ -84,7 +85,7 @@ class BinarySearchTree {
         let node = this.root;
         let data = [];
         let queue = [];
-        queue.push = node;
+        queue.push(node);
         while (queue.length) {
             let currentNode = queue.shift()
             data.push(currentNode);
@@ -108,7 +109,14 @@ class BinarySearchTree {
         return data;
     }
     DFS() {
-
+        let data = [];
+        function recursion(node) {
+            data.push(node)
+            if (node.left) recursion(node.left)
+            if (node.right) recursion(node.right)
+        }
+        recursion(this.root)
+        return data
     };
 
 }
