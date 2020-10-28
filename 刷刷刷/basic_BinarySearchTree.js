@@ -110,13 +110,110 @@ class BinarySearchTree {
     }
     DFS() {
         let data = [];
+        let level = 0
+        let depth = level
         function recursion(node) {
+            level++
+            depth = Math.max(depth, level)
             data.push(node)
             if (node.left) recursion(node.left)
             if (node.right) recursion(node.right)
+            level--
         }
         recursion(this.root)
+        console.log(depth);
         return data
     };
 
+
+    // _isSymmetroc() {
+    //     let level = 0
+    //     let depth = level;
+    //     function DFS(node) {
+    //         level++
+    //         depth = Math.max(depth, level)
+    //         if (node.left) DFS(node.left)
+    //         if (node.right) DFS(node.right)
+    //         level--
+    //     }
+    //     DFS(root)
+    // }
+    // 
+    // 
+    // isSymmetric = function (root) {
+    //     if (!root) return true
+    //     let data = []
+    //     let queue = []
+    //     let currentNode = root;
+    //     queue.push(currentNode)
+    //     function recursion() {
+    //         if (queue.length === 0) return
+    //         currentNode = queue.shift()
+    //         data.push(currentNode.val)
+
+    //         if (currentNode.left) {
+    //             queue.push(currentNode.left)
+    //         } else if (currentNode.right) {
+    //             queue.push(null)
+    //         }
+
+    //         if (currentNode.right) {
+    //             queue.push(currentNode.right)
+    //         } else if (currentNode.left) {
+    //             queue.push(null)
+    //         }
+    //         recursion()
+    //     }
+    //     recursion()
+
+    //     return level(data)
+    // };
 }
+
+// function level (data){
+//     let eachLevel = []
+//     for (let i = 1; i <= Math.sqrt(data.length + 1); i++) {
+//         for (let j = Math.pow(2, i) - 1; j < Math.pow(2, i + 1) - 1; j++) {
+//             eachLevel.push(data[j])
+//         }
+//         while (eachLevel.length) {
+//             if (eachLevel.shift() !== eachLevel.pop()) return false
+//         }
+//     }
+
+//     return true
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var maxProfit = function(prices) {
+//     if(prices.length === 0) return 0
+//     let minPrice = Infinity;
+//     let maxPrice = -Infinity;
+//     let day = {}
+
+//     for(let i = 0; i < prices.length; i++){
+//         minPrice = Math.min(minPrice, prices[i])
+//         day[prices[i]] = i
+//     }
+
+//     if(day[minPrice] >= prices.length - 1) return 0
+//     for(let j = day[minPrice]; j < prices.length; j++){
+//         maxPrice = Math.max(maxPrice, prices[j])
+//     }
+
+//     return maxPrice - minPrice
+// };
