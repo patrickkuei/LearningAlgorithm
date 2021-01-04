@@ -59,3 +59,4 @@ var quickSort = (arr, left = 0, right = arr.length - 1) => {
 //直到pivotIndex = 1，也就是左半邊剩兩個值，
 //或直到pivotIndex一直++到 left 大於 right，也就是右半邊剩下兩個值
 //就各自整理完了，再兩兩回傳，即可得到結果
+
