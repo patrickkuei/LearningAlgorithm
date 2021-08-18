@@ -1,0 +1,187 @@
+
+// base url
+/api/v1.0
+
+
+// endpoint
+[POST] /leave_days
+
+// request body payload
+{
+  "leaveTypeId": 1,
+  "userId": 3,
+  "startDate": "2021-05-03T01:00:00.000Z",
+  "endDate": "2021-05-03T10:00:00.000Z"
+}
+
+// 
+// 1. leaveTypeId
+// endpoint
+[GET] /leave_day_types
+
+// 2. userId
+//endpoint
+[GET] /users
+
+
+swagger: '2.0'
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Create New Leave Day API
+  # put the contact info for your development or API team
+  contact:
+    email: you@your-company.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+
+paths:
+  /leave_days:
+    post:
+      tags:
+      - admins
+      summary: create an leave day record
+      operationId: createLeaveDay
+      description: create an leave day record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: newLeaveDay
+        description: New leaveDay to be created
+        schema:
+          $ref: '#/definitions/newLeaveDay'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /leave_day_types:
+    get:
+      tags:
+      - admins
+      summary: get leave day types
+      operationId: getLeaveDayTypes
+      description: get leave day types
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        200:
+          description: get leave day types
+          schema:
+            $ref: '#/definitions/leaveDayTypes'
+            
+  /users:
+    get:
+      tags:
+      - admins
+      summary: get all users
+      operationId: getUsers
+      description: get all users
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        200:
+          description: get all users
+          schema:
+            $ref: '#/definitions/users'
+            
+    
+definitions:
+  newLeaveDay:
+    type: object
+    required:
+    - userId
+    - leaveTypeId
+    - startDate
+    - endDate
+    properties:
+      userId:
+        type: number
+        example: 1
+      leaveTypeId:
+        type: number
+        example: 1
+      startDate:
+        type: string
+        format: date-time
+        example: "2016-08-29T09:12:33.001Z"
+      endDate:
+        type: string
+        format: date-time
+        example: "2016-08-29T09:12:33.001Z"
+      description:
+        type: string
+        example: "休息"
+        
+  leaveDayTypes:
+    type: object
+    properties:
+      id:
+        type: number
+        example: 1
+      name:
+        type: string
+        example: "特休"
+        
+  users:
+    type: object
+    properties:
+      id:
+        type: number
+        example: 1
+      userNumber:
+        type: number
+        example: 1
+      chineseName:
+        type: string
+        example: "布雷克"
+      englishName:
+        type: string
+        example: "Blake"
+      email:
+        type: string
+        example: "blake@varmeego.com"
+      resignationDate:
+        type: string
+        example: "2020-06-08"
+      onBoardDate:
+        type: string
+        example: "2020-06-08"
+      birthDate:
+        type: string
+        example: "2020-06-08"
+      mobilePhoneNumber:
+        type: string
+        example: "0912345678"
+      gender:
+        type: number
+        example: 0
+      isOnBoardInBeginningOfMonth:
+        type: boolean
+        example: true
+      activeType:
+        type: number
+        example: 0
+
+# Added by API Auto Mocking Plugin
+host: localhost
+basePath: /api/v1.0
+schemes:
+ - https
